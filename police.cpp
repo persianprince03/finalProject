@@ -20,87 +20,56 @@ void Police::Pmove() {
   int police_direction = random() % 7;
   cout << "Generated Cop #: " << police_direction << endl;
   if (police_direction == 0) {
-    bool status = xCor - 1 < 10 && yCor - 1 < 10 && xCor-1 > 0 && yCor-1 > 0;
+    bool status = xCor - 1 < 11 && yCor - 1 < 11 && xCor-1 > 0 && yCor-1 > 0;
     cout << "NW called. status: " << status << endl;
-    if (xCor - 1 < 10 && yCor - 1 < 10) {
+    if (status == true) {
       xCor--;
       yCor--;
     }
   } else if (police_direction == 1) {
-    bool status = yCor - 1 < 11;
+    bool status = yCor - 1 < 11 && yCor - 1 > 0;
     cout << "North called. status: " << status << endl;
-    if (yCor - 1 < 11) {
+    if (status == true) {
       yCor--;
     }
   } else if (police_direction == 2) {
-    bool status = xCor + 1 < 10 && yCor - 1 < 10;
+    bool status = xCor + 1 < 11 && yCor - 1 < 11 && yCor-1 > 0;
     cout << "NE called. status: " << status << endl;
-    if (xCor + 1 < 11 && yCor - 1 < 11) {
+    if (status == true) {
       xCor++;
       yCor--;
     }
   } else if (police_direction == 3) {
-    bool status = xCor - 1 < 10;
+    bool status = xCor - 1 < 11 && xCor - 1 > 0;
     cout << "West Called. status: " << status << endl;
-    if (xCor - 1 < 11) {
+    if (status == true) {
       xCor--;
     }
   } else if (police_direction == 4) {
-    bool status = xCor + 1 < 10;
+    bool status = xCor + 1 < 11;
     cout << "East Called. status: " << status << endl;
-    if (xCor + 1 < 11) {
+    if (status == true) {
       xCor++;
     }
   } else if (police_direction == 5) {
-    bool status = xCor - 1 < 10 && yCor + 1 < 11;
+    bool status = xCor - 1 < 11 && yCor + 1 < 11 && xCor - 1 > 0;
     cout << "SW Called. status: " << status << endl;
-    if (xCor - 1 < 11 && yCor + 1 < 11) {
+    if (status == true) {
       xCor--;
       yCor++;
     }
   } else if (police_direction == 6) {
-    bool status = yCor + 1 < 10;
+    bool status = yCor + 1 < 11;
     cout << "South Called. status: " << status << endl;
-    if (yCor + 1 < 11) {
+    if (status == true) {
       yCor++;
     }
   } else {
     bool status = xCor + 1 < 11 && yCor + 1 < 11;
     cout << "SE Called. status: " << status << endl;
-    if (xCor + 1 < 10 && yCor + 1 < 10) {
+    if (status == true) {
       xCor++;
       yCor++;
     }
   }
 }
-//void Police::Pmove() {
-//    int move = random()%7;
-//    cout << "Generated Cop #: " << move << endl;
-//    if (xCor+1 <= 10 && xCor-1 >= 0 && yCor +1 <= 10&& yCor -1 >= 0){
-//        switch (move) {
-//           case 0:
-//               if(xCor + yCor < 19){
-//                   xCor++;
-//                   yCor++;
-//               }
-//            case 1:
-//                yCor--;
-//            case 2:
-//                xCor++;
-//                yCor--;
-//            case 3:
-//                xCor--;
-//            case 4:
-//                xCor++;
-//            case 5:
-//                xCor--;
-//                yCor++;
-//            case 6:
-//                yCor++;
-//            case 7:
-//                xCor++;
-//                yCor++;
-//
-//        }
-//    }
-//}
