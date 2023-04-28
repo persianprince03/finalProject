@@ -3,7 +3,6 @@
 #define POLICE_H
 #include "robber.h"
 #include "jewel.h"
-#include "const.h"
 
 #include <iostream>
 using namespace std;
@@ -11,19 +10,19 @@ using namespace std;
 
 class Police{
     private:
-    int id;
+    int id = 1;
     int xCor, yCor;
     int totalConfisicatedVal;
-    int caughtRobbers
-        ;
+    int caughtRobbers;
 public:
     Police();
-    Police(int x, int y ,int num);
-    void move(char board[10][10]);
-    void printSummary();
+    Police(int x, int y ,int id);
+    void Pmove();
+
+    int getXcor();
+    int getYcor();
+    
     void arrest(int loot_value);
-    int getRow();
-    int getColumn();
 
 };
 

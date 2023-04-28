@@ -2,7 +2,6 @@
 #ifndef CITY_H
 #define CITY_H
 
-#include "const.h"
 #include "jewel.h"
 #include <iostream>
 
@@ -39,9 +38,6 @@ class City{
     private:
     char cityGrid[10][10];
     int jewelCount = 0;
-
-
-    
 
 };
 

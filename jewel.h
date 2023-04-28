@@ -2,7 +2,6 @@
 #ifndef JEWEL_H
 #define JEWEL_H
 
-#include "const.h"
 #include <iostream>
 
 
@@ -20,7 +19,13 @@ class Jewel{
     //Post: initialized Jewel
     Jewel(int x, int y, int val);
 
-//        int getVal();
+    //gets X cordinates
+    int getXocr();
+
+    //gets y cordionaterds
+    int getYcor();
+    //gets jewel values
+    int getVal();
     private:
         int val = 0;
         int Xcor;

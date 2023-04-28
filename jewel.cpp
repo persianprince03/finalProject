@@ -13,4 +13,14 @@ Jewel::Jewel(int x, int y, int val) {
 
 }
 
+int Jewel::getXocr() {
+    return Xcor;
+}
 
+int Jewel::getYcor(){
+    return Ycor;
+}
+
+int Jewel::getVal() {
+    return val;
+}

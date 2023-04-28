@@ -1,4 +1,4 @@
-//Programmers: Parsa Divanbeigi(pdcbc) and Raphael Seymour(rns2p2) Section: 101
+//Programmers: Parsa Divanbeigi(pdcbc) and Rapheal Seymour(rns2p2) Section: 101
 
 #ifndef ROBBER_H
 #define ROBBER_H
@@ -6,7 +6,6 @@
 #include "police.h"
 #include "jewel.h"
 #include "city.h"
-#include "const.h"
 
 
 
@@ -29,7 +28,7 @@ public:
     //Description: explicitly Initializes the robber.
     //Pre; whether the robber is greedy or not, id , and coordinates
     //Post: Initializes the robber to its starting values and position.
-    Robber(bool isGreedy,int num, int x, int y);
+    Robber(bool isGreedy,int numRobbers, int x, int y);
     //Description: moves the robber.
     //Pre: none
     //Post: updated cordinates
@@ -47,15 +46,15 @@ public:
     void setLoot(int val);
     //getter function for active
     bool getStatus();
+
+    int pickUpLoot(Jewel loot);
 private:
     int id ;
     int Xcor;
     int Ycor;
     T bag[17];
-    static int totalVal;
-    static int numRobbers;
-    int valueSelf;
-    int numLoot = 0;
+
+    int numLoot = 0;//amount of looted jewwelery
     bool active = true;
     bool greedy;
 

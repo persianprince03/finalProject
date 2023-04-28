@@ -4,21 +4,15 @@
 #include <iostream>
 
 
-
-
-
-
-
-
 template <class T>
 
-Robber<T>::Robber(bool isGreedy,int num, int x, int y){
+Robber<T>::Robber(bool isGreedy,int numRobbers, int x, int y){
 
-    id = 0;
+    id = numRobbers;
     Xcor = x;
     Ycor = y;
     greedy = isGreedy;
-    id++;
+    numRobbers++;
 
 }
 template<class T>
@@ -27,56 +21,61 @@ Robber<T>::Robber() {}
 
 template<class T>
 void Robber<T>::move() {
-    int direction = random() % 7;
-    cout<<"debug: luck:  "<<direction<<endl;
-    if (direction == 0) {
+    int robber_direction = random() % 7;
+    cout << "Generated Robber #: " << robber_direction << endl;
+    if (robber_direction == 0) {
         bool status = Xcor-1 < 11 && Ycor-1<11;
-        cout<<"Debug: status: "<<status<<endl;
-        if (Xcor-1 < 11 && Ycor-1<11) {
-            Xcor --;
+
+        cout<<"NW called" << endl;
+        if ((Xcor + Ycor) < 20 && Xcor-1 > 0 && Ycor-1 > 0) {
+            Xcor--;
             Ycor--;
         }
-    } else if (direction == 1) {
+    } else if (robber_direction == 1) {
         bool status = Ycor-1<11;
-        cout<<"Debug: status: "<<status<<endl;
-        if (Ycor-1 < 11 ) {
+        cout<<"North called" << endl;
+        if (Ycor-1 < 11 && Ycor-1 > 0) {
             Ycor--;
         }
-    } else if (direction == 2) {
+    } else if (robber_direction == 2) {
         bool status = Xcor+1 < 11 && Ycor-1<11;
-        cout<<"Debug: status: "<<status<<endl;
-        if (Xcor+1 < 11 && Ycor-1<11) {
+        cout<<"NE called" << endl;
+        if (Xcor+1 < 11 && Ycor-1<11 && Xcor-1 > 0 && Ycor-1 > 0) {
             Xcor++;
             Ycor--;
         }
-    } else if (direction == 3) {
+    } else if (robber_direction == 3) {
         bool status = Xcor-1 < 11 ;
-        cout<<"Debug: status: "<<status<<endl;
-        if (Xcor-1 < 11 ) {
+        cout<<"West called" << endl;
+        if (Xcor-1 < 11 && Xcor-1 > 0) {
             Xcor--;
         }
-    } else if (direction == 4) {
+    } else if (robber_direction == 4) {
         bool status = Xcor+1 < 11 ;
-        cout<<"Debug: status: "<<status<<endl;
-        if (Xcor+1 < 11 ) {
+        cout<<"East called" << endl;
+        if (Xcor+1 < 11 && Xcor-1 > 0) {
             Xcor++;
         }
-    } else if (direction == 5) {
+    } else if (robber_direction == 5) {
         bool status = Xcor-1 < 11 && Ycor+1<11;
-        cout<<"Debug: status: "<<status<<endl;
-        if (Xcor-1 < 11  && Ycor +1<11) {
+        cout<<"SW called" << endl;
+        cout << "\nXcor before: " << Xcor;
+        cout << "\nYcor before: " << Ycor;
+        if (Xcor-1 < 11  && Ycor+1<11 && Xcor-1 > 0) {
             Xcor--;
             Ycor++;
+            cout << "\nAfter: " << Xcor;
+            cout << "\nAfter: " << Ycor;
         }
-    } else if (direction == 6) {
+    } else if (robber_direction == 6) {
         bool status = Ycor+1<11;
-        cout<<"Debug: status: "<<status<<endl;
-        if (Ycor+1 < 11 ) {
+        cout<<"South called" << endl;
+        if (Ycor+1 < 11) {
             Ycor++;
         }
     } else {
         bool status = Xcor+1 < 11 && Ycor+1<11;
-        cout<<"Debug: status: "<<status<<endl;
+        cout<<"SE called" << endl;
         if (Xcor+1 < 11 && Ycor +1 <11) {
             Xcor++;
             Ycor++;
@@ -104,6 +103,7 @@ bool Robber<T>::getGreed() {
 template<class T>
 void Robber<T>::setLoot(int val) {
     numLoot = val;
+
 }
 
 template<class T>
@@ -115,3 +115,10 @@ template<class T>
 bool Robber<T>::getStatus() {
     return active;
 }
+
+template<class T>
+int Robber<T>::pickUpLoot(Jewel loot){
+    bag[numLoot]=loot;
+
+}
+

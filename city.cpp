@@ -7,17 +7,9 @@
 
 using namespace std;
 
-
-
-
-
-
-
-
-
 City::City() {
 
-    int jewelNum = 0;
+
 
     for (int x = 0; x < 10; x++) {
         for (int y = 0; y < 10; y++) {
@@ -29,13 +21,16 @@ City::City() {
 }
 
 void City::printGrid(){
+    int city_side_count = 1;
     for(int i = 0; i < 10; i++){
         cout << " _ _ _ _ _ _ _ _ _ _ " << endl;
         for(int j = 0; j < 10; j++){
             cout << '|' << cityGrid[i][j];
         }
-        cout << '|' << endl;
+        cout << '|' << " " << city_side_count << endl;
+        city_side_count += 1;
     }
+  cout << endl;
 }
 
 char City::getMap(int x, int y) {
@@ -44,7 +39,10 @@ char City::getMap(int x, int y) {
 }
 void City::setMap(int x, int y, char c) {
     cityGrid[x][y]=c;
+  
 }
+
+
 //jewel City::getJewel(int x, int y)
 //{
 //    int coordinate = (x * 10) + y;
