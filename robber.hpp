@@ -24,44 +24,43 @@ void Robber<T>::move() {
     int robber_direction = random() % 7;
     cout << "Generated Robber #: " << robber_direction << endl;
     if (robber_direction == 0) {
-        bool status = Xcor-1 < 11 && Ycor-1<11;
-
+        bool status = (Xcor + Ycor) < 20 && Xcor-1 > 0 && Ycor-1 > 0;
         cout<<"NW called" << endl;
-        if ((Xcor + Ycor) < 20 && Xcor-1 > 0 && Ycor-1 > 0) {
+        if (status == true) {
             Xcor--;
             Ycor--;
         }
     } else if (robber_direction == 1) {
-        bool status = Ycor-1<11;
+        bool status = Ycor-1 < 11 && Ycor-1 > 0;
         cout<<"North called" << endl;
-        if (Ycor-1 < 11 && Ycor-1 > 0) {
+        if (status == true) {
             Ycor--;
         }
     } else if (robber_direction == 2) {
-        bool status = Xcor+1 < 11 && Ycor-1<11;
+        bool status = Xcor+1 < 11 && Ycor-1<11 && Xcor-1 > 0 && Ycor-1 > 0;
         cout<<"NE called" << endl;
-        if (Xcor+1 < 11 && Ycor-1<11 && Xcor-1 > 0 && Ycor-1 > 0) {
+        if (status == true) {
             Xcor++;
             Ycor--;
         }
     } else if (robber_direction == 3) {
-        bool status = Xcor-1 < 11 ;
+        bool status = Xcor-1 < 11 && Xcor-1 > 0;
         cout<<"West called" << endl;
-        if (Xcor-1 < 11 && Xcor-1 > 0) {
+        if (status == true) {
             Xcor--;
         }
     } else if (robber_direction == 4) {
-        bool status = Xcor+1 < 11 ;
+        bool status = Xcor+1 < 11 && Xcor-1 > 0;
         cout<<"East called" << endl;
-        if (Xcor+1 < 11 && Xcor-1 > 0) {
+        if (status == true) {
             Xcor++;
         }
     } else if (robber_direction == 5) {
-        bool status = Xcor-1 < 11 && Ycor+1<11;
+        bool status = Xcor-1 < 11  && Ycor+1<11 && Xcor-1 > 0;
         cout<<"SW called" << endl;
         cout << "\nXcor before: " << Xcor;
         cout << "\nYcor before: " << Ycor;
-        if (Xcor-1 < 11  && Ycor+1<11 && Xcor-1 > 0) {
+        if (status == true) {
             Xcor--;
             Ycor++;
             cout << "\nAfter: " << Xcor;
@@ -70,13 +69,13 @@ void Robber<T>::move() {
     } else if (robber_direction == 6) {
         bool status = Ycor+1<11;
         cout<<"South called" << endl;
-        if (Ycor+1 < 11) {
+        if (status == true) {
             Ycor++;
         }
     } else {
-        bool status = Xcor+1 < 11 && Ycor+1<11;
+        bool status = Xcor+1 < 11 && Ycor +1 <11;
         cout<<"SE called" << endl;
-        if (Xcor+1 < 11 && Ycor +1 <11) {
+        if (status == true) {
             Xcor++;
             Ycor++;
         }
